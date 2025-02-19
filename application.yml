@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://dbTemplateAdmin:18z2RFM17VOk35EZ@clustertemplatesite.pelxi.mongodb.net/?retryWrites=true&w=majority&appName=ClusterTemplateSite
+      database: demo
+server:
+  port: 8081
