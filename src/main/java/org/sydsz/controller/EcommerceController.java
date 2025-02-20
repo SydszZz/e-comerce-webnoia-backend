@@ -1,6 +1,6 @@
 package org.sydsz.controller;
 
-import org.sydsz.model.Product;
+import org.sydsz.model.Produto;
 import org.sydsz.service.EcommerceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,23 +16,23 @@ public class EcommerceController {
     private EcommerceService ecommerceService;
 
     @GetMapping
-    public List<Product> getAllProducts() {
-        return ecommerceService.getAllProducts();
+    public List<Produto> getAllProdutos() {
+        return ecommerceService.getAllProdutos();
     }
 
     @GetMapping("/{id}")
-    public Optional<Product> getProductById(@PathVariable String id) {
-        return ecommerceService.getProductById(id);
+    public Optional<Produto> getProdutosById(@PathVariable String id) {
+        return ecommerceService.getProdutosById(id);
     }
 
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return ecommerceService.createProduct(product);
+    public Produto createProduto(@RequestBody Produto product) {
+        return ecommerceService.createProduto(product);
     }
 
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable String id) {
-        ecommerceService.deleteProduct(id);
+        ecommerceService.deleteProduto(id);
     }
 }
 

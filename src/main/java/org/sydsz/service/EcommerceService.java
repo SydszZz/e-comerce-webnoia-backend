@@ -1,6 +1,6 @@
 package org.sydsz.service;
 
-import org.sydsz.model.Product;
+import org.sydsz.model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sydsz.repository.EcommerceRepository;
@@ -14,19 +14,21 @@ public class EcommerceService {
     @Autowired
     private EcommerceRepository ecommerceRepository;
 
-    public List<Product> getAllProducts() {
+    public List<Produto> getAllProdutos() {
+
         return ecommerceRepository.findAll();
     }
 
-    public Optional<Product> getProductById(String id) {
-        return ecommerceRepository.findById(id);
+    public Optional<Produto> getProdutosById(String id) {
+        Optional<Produto> produtoOptional = ecommerceRepository.findById(id);
+        return Optional.ofNullable(produtoOptional.orElse(null)); // Retorna null se não encontrar
     }
 
-    public Product createProduct(Product product) {
-        return ecommerceRepository.save(product);
+    public Produto createProduto(Produto produto) {
+        return ecommerceRepository.save(produto);
     }
 
-    public void deleteProduct(String id) {
+    public void deleteProduto(String id) {
         ecommerceRepository.deleteById(id);
     }
 }
